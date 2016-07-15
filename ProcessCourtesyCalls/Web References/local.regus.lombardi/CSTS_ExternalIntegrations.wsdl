@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://www.regus.com/teamworks/webservices/CUSTSS/CSTS_ExternalIntegrations.tws" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://www.regus.com/teamworks/webservices/CUSTSS/CSTS_ExternalIntegrations.tws" targetNamespace="http://www.regus.com/teamworks/webservices/CUSTSS/CSTS_ExternalIntegrations.tws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.regus.com/teamworks/webservices/CUSTSS/CSTS_ExternalIntegrations.tws">
+      <xsd:complexType name="TicketInfoWebService">
+        <xsd:sequence>
+          <xsd:element name="TicketReference" nillable="true" type="xsd:int" />
+          <xsd:element name="CreateDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="CreateUser" nillable="true" type="xsd:string" />
+          <xsd:element name="CategoryID" nillable="true" type="xsd:int" />
+          <xsd:element name="Category" nillable="true" type="xsd:string" />
+          <xsd:element name="SubCategoryID" nillable="true" type="xsd:int" />
+          <xsd:element name="SubCategory" nillable="true" type="xsd:string" />
+          <xsd:element name="TWInstance" nillable="true" type="xsd:int" />
+          <xsd:element name="TicketStatusID" nillable="true" type="xsd:int" />
+          <xsd:element name="TicketStatusDescription" nillable="true" type="xsd:string" />
+          <xsd:element name="Priority" nillable="true" type="xsd:int" />
+          <xsd:element name="Urgent" nillable="true" type="xsd:boolean" />
+          <xsd:element name="AssignedTo" nillable="true" type="xsd:string" />
+          <xsd:element name="RequesterName" nillable="true" type="xsd:string" />
+          <xsd:element name="RequesterEmail" nillable="true" type="xsd:string" />
+          <xsd:element name="RequesterTelephone" nillable="true" type="xsd:string" />
+          <xsd:element name="RequesterTimeZoneKey" nillable="true" type="xsd:int" />
+          <xsd:element name="RequesterTimeZoneName" nillable="true" type="xsd:string" />
+          <xsd:element name="RequesterTimeZoneBias" nillable="true" type="xsd:int" />
+          <xsd:element name="ThirdParty" nillable="true" type="xsd:string" />
+          <xsd:element name="ThirdPartyReference" nillable="true" type="xsd:string" />
+          <xsd:element name="ResolvedDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="ClosedDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="ClientImpactedName" nillable="true" type="xsd:string" />
+          <xsd:element name="ClientImpactedTitanID" nillable="true" type="xsd:int" />
+          <xsd:element name="SWRef" nillable="true" type="xsd:string" />
+          <xsd:element name="ContactName" nillable="true" type="xsd:string" />
+          <xsd:element name="ContactEmail" nillable="true" type="xsd:string" />
+          <xsd:element name="ContactEmailConfirmed" nillable="true" type="xsd:string" />
+          <xsd:element name="ContactTelephone" nillable="true" type="xsd:string" />
+          <xsd:element name="CentreNumber" nillable="true" type="xsd:int" />
+          <xsd:element name="CentreName" nillable="true" type="xsd:string" />
+          <xsd:element name="CentreEmail" nillable="true" type="xsd:string" />
+          <xsd:element name="CentreTelephone" nillable="true" type="xsd:string" />
+          <xsd:element name="CentreCountry" nillable="true" type="xsd:string" />
+          <xsd:element name="NonContactCall" nillable="true" type="xsd:boolean" />
+          <xsd:element name="ResolutionCode" nillable="true" type="xsd:int" />
+          <xsd:element name="IssueTypeID" nillable="true" type="xsd:int" />
+          <xsd:element name="SLADate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="EmployeeId" nillable="true" type="xsd:string" />
+          <xsd:element name="RequiredByDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="ServiceLostDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="ServiceRestoredDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="agentTaskID" nillable="true" type="xsd:int" />
+          <xsd:element name="systemSource" nillable="true" type="xsd:int" />
+          <xsd:element name="SystemSourceName" nillable="true" type="xsd:string" />
+          <xsd:element name="systemSourceSubId" nillable="true" type="xsd:int" />
+          <xsd:element name="systemSourceSubName" nillable="true" type="xsd:string" />
+          <xsd:element name="ClosureCodeID" nillable="true" type="xsd:int" />
+          <xsd:element name="ClosureCodeDesc" nillable="true" type="xsd:string" />
+          <xsd:element name="AssignedTeamID" nillable="true" type="xsd:int" />
+          <xsd:element name="AssignedTeamName" nillable="true" type="xsd:string" />
+          <xsd:element name="TitanCompanyId" nillable="true" type="xsd:int" />
+          <xsd:element name="TitanBwRef" nillable="true" type="xsd:string" />
+          <xsd:element name="AssignedDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="ticketAge" nillable="true" type="xsd:string" />
+          <xsd:element name="slaExpiry" nillable="true" type="xsd:string" />
+          <xsd:element name="websiteUrl" nillable="true" type="xsd:string" />
+          <xsd:element name="InputTypeId" nillable="true" type="xsd:int" />
+          <xsd:element name="RSCNameRegion" nillable="true" type="xsd:string" />
+          <xsd:element name="ReceiveDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="VersionId" nillable="true" type="xsd:double" />
+          <xsd:element name="ResponseTypeID" nillable="true" type="xsd:int" />
+          <xsd:element name="invisibleToCentre" nillable="true" type="xsd:boolean" />
+          <xsd:element name="typeId" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CSTS_External_CreateTicket_Input">
+        <xsd:sequence>
+          <xsd:element name="sourceSystemId" nillable="true" type="xsd:int" />
+          <xsd:element name="categoryId" nillable="true" type="xsd:int" />
+          <xsd:element name="subCategoryId" nillable="true" type="xsd:int" />
+          <xsd:element name="contactName" nillable="true" type="xsd:string" />
+          <xsd:element name="contactPhone" nillable="true" type="xsd:string" />
+          <xsd:element name="contactEmail" nillable="true" type="xsd:string" />
+          <xsd:element name="centreNumber" nillable="true" type="xsd:int" />
+          <xsd:element name="centreName" nillable="true" type="xsd:string" />
+          <xsd:element name="titanCompanyId" nillable="true" type="xsd:int" />
+          <xsd:element name="companyName" nillable="true" type="xsd:string" />
+          <xsd:element name="businessWorldNumber" nillable="true" type="xsd:string" />
+          <xsd:element name="ticketDescription" nillable="true" type="xsd:string" />
+          <xsd:element name="countryName" nillable="true" type="xsd:string" />
+          <xsd:element name="countryCode" nillable="true" type="xsd:string" />
+          <xsd:element name="msgSubject" nillable="true" type="xsd:string" />
+          <xsd:element name="receivedDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="invisibleToCentre" nillable="true" type="xsd:boolean" />
+          <xsd:element name="productTypeID" nillable="true" type="xsd:int" />
+          <xsd:element name="sourceSystemSubId" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TicketInfo">
+        <xsd:sequence>
+          <xsd:element name="TicketReference" nillable="true" type="xsd:int" />
+          <xsd:element name="CreateDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="CreateUser" nillable="true" type="xsd:string" />
+          <xsd:element name="CategoryID" nillable="true" type="xsd:int" />
+          <xsd:element name="Category" nillable="true" type="xsd:string" />
+          <xsd:element name="SubCategoryID" nillable="true" type="xsd:int" />
+          <xsd:element name="SubCategory" nillable="true" type="xsd:string" />
+          <xsd:element name="TWInstance" nillable="true" type="xsd:int" />
+          <xsd:element name="TicketStatusID" nillable="true" type="xsd:int" />
+          <xsd:element name="TicketStatusDescription" nillable="true" type="xsd:string" />
+          <xsd:element name="Priority" nillable="true" type="xsd:int" />
+          <xsd:element name="Urgent" nillable="true" type="xsd:boolean" />
+          <xsd:element name="AssignedTo" nillable="true" type="xsd:string" />
+          <xsd:element name="RequesterName" nillable="true" type="xsd:string" />
+          <xsd:element name="RequesterEmail" nillable="true" type="xsd:string" />
+          <xsd:element name="RequesterTelephone" nillable="true" type="xsd:string" />
+          <xsd:element name="ThirdParty" nillable="true" type="xsd:string" />
+          <xsd:element name="ThirdPartyReference" nillable="true" type="xsd:string" />
+          <xsd:element name="ResolvedDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="ClosedDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="ContactName" nillable="true" type="xsd:string" />
+          <xsd:element name="ContactEmail" nillable="true" type="xsd:string" />
+          <xsd:element name="ContactEmailConfirmed" nillable="true" type="xsd:string" />
+          <xsd:element name="ContactTelephone" nillable="true" type="xsd:string" />
+          <xsd:element name="CentreNumber" nillable="true" type="xsd:int" />
+          <xsd:element name="CentreName" nillable="true" type="xsd:string" />
+          <xsd:element name="CentreEmail" nillable="true" type="xsd:string" />
+          <xsd:element name="CentreTelephone" nillable="true" type="xsd:string" />
+          <xsd:element name="CentreCountry" nillable="true" type="xsd:string" />
+          <xsd:element name="NonContactCall" nillable="true" type="xsd:boolean" />
+          <xsd:element name="SLADate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="RequiredByDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="agentTaskID" nillable="true" type="xsd:int" />
+          <xsd:element name="systemSource" nillable="true" type="xsd:int" />
+          <xsd:element name="SystemSourceName" nillable="true" type="xsd:string" />
+          <xsd:element name="systemSourceSubId" nillable="true" type="xsd:int" />
+          <xsd:element name="systemSourceSubName" nillable="true" type="xsd:string" />
+          <xsd:element name="ClosureCodeID" nillable="true" type="xsd:int" />
+          <xsd:element name="ClosureCodeDesc" nillable="true" type="xsd:string" />
+          <xsd:element name="AssignedTeamID" nillable="true" type="xsd:int" />
+          <xsd:element name="AssignedTeamName" nillable="true" type="xsd:string" />
+          <xsd:element name="TitanCompanyId" nillable="true" type="xsd:int" />
+          <xsd:element name="TitanBwRef" nillable="true" type="xsd:string" />
+          <xsd:element name="AssignedDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="ticketAge" nillable="true" type="xsd:string" />
+          <xsd:element name="slaExpiry" nillable="true" type="xsd:string" />
+          <xsd:element name="websiteUrl" nillable="true" type="xsd:string" />
+          <xsd:element name="InputTypeId" nillable="true" type="xsd:int" />
+          <xsd:element name="RSCNameRegion" nillable="true" type="xsd:string" />
+          <xsd:element name="ReceiveDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="VersionId" nillable="true" type="xsd:double" />
+          <xsd:element name="ResponseTypeID" nillable="true" type="xsd:int" />
+          <xsd:element name="invisibleToCentre" nillable="true" type="xsd:boolean" />
+          <xsd:element name="productTypeID" nillable="true" type="xsd:int" />
+          <xsd:element name="typeId" nillable="true" type="xsd:int" />
+          <xsd:element name="typeDescription" nillable="true" type="xsd:string" />
+          <xsd:element name="adEscalationId" nillable="true" type="xsd:int" />
+          <xsd:element name="RequesterTimeZoneKey" nillable="true" type="xsd:string" />
+          <xsd:element name="RequesterTimeZoneName" nillable="true" type="xsd:string" />
+          <xsd:element name="RequesterTimeZoneBias" nillable="true" type="xsd:string" />
+          <xsd:element name="excludeAutoCloseTimeInMinutes" nillable="true" type="xsd:boolean" />
+          <xsd:element name="reopenedTicket" nillable="true" type="xsd:boolean" />
+          <xsd:element name="reopenTicketAvailable" nillable="true" type="xsd:boolean" />
+          <xsd:element name="lockedByUserName" nillable="true" type="xsd:string" />
+          <xsd:element name="lockedByUserId" nillable="true" type="xsd:int" />
+          <xsd:element name="courtesyCallFeedId" nillable="true" type="xsd:int" />
+          <xsd:element name="courtesyCallStatus" nillable="true" type="xsd:int" />
+          <xsd:element name="coutesyCallLogResponseId" nillable="true" type="xsd:int" />
+          <xsd:element name="LCID" nillable="true" type="xsd:int" />
+          <xsd:element name="gmEmployeeName" nillable="true" type="xsd:string" />
+          <xsd:element name="adEmployeeName" nillable="true" type="xsd:string" />
+          <xsd:element name="amEmployeeName" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CSTS_External_CreateTicket">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ticketData" type="impl:CSTS_External_CreateTicket_Input" />
+            <xsd:element name="createDate_Override" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CSTS_External_CreateTicketResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="errorMessage" type="xsd:string" />
+            <xsd:element name="errorCode" type="xsd:string" />
+            <xsd:element name="ticketReference" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetTicketById">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ticketReference" type="xsd:int" />
+            <xsd:element name="rZoneDisplay" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetTicketByIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ticketInfo" type="impl:TicketInfo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CloseTicket">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ticketReference" type="xsd:int" />
+            <xsd:element name="comment" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CloseTicketResponse">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="SetTicketAsCompleteByCentre">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="taskId" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SetTicketAsCompleteByCentreResponse">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="UpdateTicket">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ticketInfoWS" type="impl:TicketInfoWebService" />
+            <xsd:element name="newUpdate" type="xsd:string" />
+            <xsd:element name="commentType" type="xsd:string" />
+            <xsd:element name="commentOnly" type="xsd:boolean" />
+            <xsd:element name="userName" type="xsd:string" />
+            <xsd:element name="reopenedFromJobTracker" type="xsd:boolean" />
+            <xsd:element name="privateComment" type="xsd:boolean" />
+            <xsd:element name="addCommsIncAllComms" type="xsd:int" />
+            <xsd:element name="addCommsTO" type="xsd:string" />
+            <xsd:element name="addCommsCC" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateTicketResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="publicQuestion" type="xsd:boolean" />
+            <xsd:element name="privateComment" type="xsd:boolean" />
+            <xsd:element name="nonContactPersonComms" type="xsd:boolean" />
+            <xsd:element name="hasBeenReassigned" type="xsd:boolean" />
+            <xsd:element name="addCommsIncAllComms" type="xsd:int" />
+            <xsd:element name="addCommsTO" type="xsd:string" />
+            <xsd:element name="addCommsCC" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SetTicketAsUpdatedByCentre">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="taskId" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SetTicketAsUpdatedByCentreResponse">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="TicketLocking">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="isNewTicket" type="xsd:boolean" />
+            <xsd:element name="ticketReference" type="xsd:int" />
+            <xsd:element name="lockTicket" type="xsd:boolean" />
+            <xsd:element name="lockedByUserId" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TicketLockingResponse">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="processCourtesyCalls">
+        <xsd:complexType />
+      </xsd:element>
+      <xsd:element name="processCourtesyCallsResponse">
+        <xsd:complexType />
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateTicketRequest">
+    <wsdl:part name="parameters" element="impl:UpdateTicket" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketByIdResponse">
+    <wsdl:part name="parameters" element="impl:GetTicketByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseTicketResponse">
+    <wsdl:part name="parameters" element="impl:CloseTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseTicketRequest">
+    <wsdl:part name="parameters" element="impl:CloseTicket" />
+  </wsdl:message>
+  <wsdl:message name="UpdateTicketResponse">
+    <wsdl:part name="parameters" element="impl:UpdateTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTicketAsCompleteByCentreResponse">
+    <wsdl:part name="parameters" element="impl:SetTicketAsCompleteByCentreResponse" />
+  </wsdl:message>
+  <wsdl:message name="CSTS_External_CreateTicketResponse">
+    <wsdl:part name="parameters" element="impl:CSTS_External_CreateTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="TicketLockingRequest">
+    <wsdl:part name="parameters" element="impl:TicketLocking" />
+  </wsdl:message>
+  <wsdl:message name="CSTS_External_CreateTicketRequest">
+    <wsdl:part name="parameters" element="impl:CSTS_External_CreateTicket" />
+  </wsdl:message>
+  <wsdl:message name="SetTicketAsUpdatedByCentreRequest">
+    <wsdl:part name="parameters" element="impl:SetTicketAsUpdatedByCentre" />
+  </wsdl:message>
+  <wsdl:message name="GetTicketByIdRequest">
+    <wsdl:part name="parameters" element="impl:GetTicketById" />
+  </wsdl:message>
+  <wsdl:message name="processCourtesyCallsRequest">
+    <wsdl:part name="parameters" element="impl:processCourtesyCalls" />
+  </wsdl:message>
+  <wsdl:message name="SetTicketAsUpdatedByCentreResponse">
+    <wsdl:part name="parameters" element="impl:SetTicketAsUpdatedByCentreResponse" />
+  </wsdl:message>
+  <wsdl:message name="TicketLockingResponse">
+    <wsdl:part name="parameters" element="impl:TicketLockingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetTicketAsCompleteByCentreRequest">
+    <wsdl:part name="parameters" element="impl:SetTicketAsCompleteByCentre" />
+  </wsdl:message>
+  <wsdl:message name="processCourtesyCallsResponse">
+    <wsdl:part name="parameters" element="impl:processCourtesyCallsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CSTS_ExternalIntegrationsPortType">
+    <wsdl:operation name="CSTS_External_CreateTicket">
+      <wsdl:input name="CSTS_External_CreateTicketRequest" message="impl:CSTS_External_CreateTicketRequest" />
+      <wsdl:output name="CSTS_External_CreateTicketResponse" message="impl:CSTS_External_CreateTicketResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketById">
+      <wsdl:input name="GetTicketByIdRequest" message="impl:GetTicketByIdRequest" />
+      <wsdl:output name="GetTicketByIdResponse" message="impl:GetTicketByIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CloseTicket">
+      <wsdl:input name="CloseTicketRequest" message="impl:CloseTicketRequest" />
+      <wsdl:output name="CloseTicketResponse" message="impl:CloseTicketResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTicketAsCompleteByCentre">
+      <wsdl:input name="SetTicketAsCompleteByCentreRequest" message="impl:SetTicketAsCompleteByCentreRequest" />
+      <wsdl:output name="SetTicketAsCompleteByCentreResponse" message="impl:SetTicketAsCompleteByCentreResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTicket">
+      <wsdl:input name="UpdateTicketRequest" message="impl:UpdateTicketRequest" />
+      <wsdl:output name="UpdateTicketResponse" message="impl:UpdateTicketResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTicketAsUpdatedByCentre">
+      <wsdl:input name="SetTicketAsUpdatedByCentreRequest" message="impl:SetTicketAsUpdatedByCentreRequest" />
+      <wsdl:output name="SetTicketAsUpdatedByCentreResponse" message="impl:SetTicketAsUpdatedByCentreResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="TicketLocking">
+      <wsdl:input name="TicketLockingRequest" message="impl:TicketLockingRequest" />
+      <wsdl:output name="TicketLockingResponse" message="impl:TicketLockingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="processCourtesyCalls">
+      <wsdl:input name="processCourtesyCallsRequest" message="impl:processCourtesyCallsRequest" />
+      <wsdl:output name="processCourtesyCallsResponse" message="impl:processCourtesyCallsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CSTS_ExternalIntegrationsSoapSoapBinding" type="impl:CSTS_ExternalIntegrationsPortType">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CSTS_External_CreateTicket">
+      <wsdlsoap:operation soapAction="http://www.regus.com/teamworks/webservices/CUSTSS/CSTS_ExternalIntegrations.tws/CSTS_External_CreateTicket" />
+      <wsdl:input name="CSTS_External_CreateTicketRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CSTS_External_CreateTicketResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketById">
+      <wsdlsoap:operation soapAction="http://www.regus.com/teamworks/webservices/CUSTSS/CSTS_ExternalIntegrations.tws/GetTicketById" />
+      <wsdl:input name="GetTicketByIdRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetTicketByIdResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CloseTicket">
+      <wsdlsoap:operation soapAction="http://www.regus.com/teamworks/webservices/CUSTSS/CSTS_ExternalIntegrations.tws/CloseTicket" />
+      <wsdl:input name="CloseTicketRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CloseTicketResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTicketAsCompleteByCentre">
+      <wsdlsoap:operation soapAction="http://www.regus.com/teamworks/webservices/CUSTSS/CSTS_ExternalIntegrations.tws/SetTicketAsCompleteByCentre" />
+      <wsdl:input name="SetTicketAsCompleteByCentreRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetTicketAsCompleteByCentreResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTicket">
+      <wsdlsoap:operation soapAction="http://www.regus.com/teamworks/webservices/CUSTSS/CSTS_ExternalIntegrations.tws/UpdateTicket" />
+      <wsdl:input name="UpdateTicketRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UpdateTicketResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTicketAsUpdatedByCentre">
+      <wsdlsoap:operation soapAction="http://www.regus.com/teamworks/webservices/CUSTSS/CSTS_ExternalIntegrations.tws/SetTicketAsUpdatedByCentre" />
+      <wsdl:input name="SetTicketAsUpdatedByCentreRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="SetTicketAsUpdatedByCentreResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TicketLocking">
+      <wsdlsoap:operation soapAction="http://www.regus.com/teamworks/webservices/CUSTSS/CSTS_ExternalIntegrations.tws/TicketLocking" />
+      <wsdl:input name="TicketLockingRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="TicketLockingResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="processCourtesyCalls">
+      <wsdlsoap:operation soapAction="http://www.regus.com/teamworks/webservices/CUSTSS/CSTS_ExternalIntegrations.tws/processCourtesyCalls" />
+      <wsdl:input name="processCourtesyCallsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="processCourtesyCallsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CSTS_ExternalIntegrations">
+    <wsdl:port name="CSTS_ExternalIntegrationsSoap" binding="impl:CSTS_ExternalIntegrationsSoapSoapBinding">
+      <wsdl:documentation>
+SOAP Port   </wsdl:documentation>
+      <wsdlsoap:address location="http://lombardi.regus.local/teamworks/webservices/CUSTSS/CSTS_ExternalIntegrations.tws" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
